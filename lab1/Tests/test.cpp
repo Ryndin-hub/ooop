@@ -2,13 +2,14 @@
 #include "RNK.h"
 
 namespace {
-class ClassDeclaration : public testing::Test {
+class RnkFixture : public testing::Test {
 public:
     RNK rnk1,rnk2,rnk3;
 };
 }
 
-TEST_F(ClassDeclaration,test_eq){
+TEST_F(RnkFixture,eq){
+    RNK rnk1,rnk2;
     rnk1[0] = RNK::A;
     EXPECT_EQ(rnk1[0],RNK::A);
     rnk1[0] = rnk2[1] = RNK::G;
@@ -16,7 +17,7 @@ TEST_F(ClassDeclaration,test_eq){
     EXPECT_EQ(rnk2[1],RNK::G);
 }
 
-TEST_F(ClassDeclaration,test_plus){
+TEST_F(RnkFixture,plus){
     for (int i = 0; i < 100; i++){
         rnk1[i] = RNK::G;
         rnk2[i] = RNK::A;
@@ -28,7 +29,7 @@ TEST_F(ClassDeclaration,test_plus){
     }
 }
 
-TEST_F(ClassDeclaration,test_100mil){
+TEST_F(RnkFixture,100mil){
     for (int i = 0; i < 100000000; i++){
         rnk1[i] = RNK::C;
     }
@@ -37,7 +38,7 @@ TEST_F(ClassDeclaration,test_100mil){
     }
 }
 
-TEST_F(ClassDeclaration,test_cpy){
+TEST_F(RnkFixture,cpy){
     for (int i = 0; i < 1000; i+=3){
         rnk1[i] = RNK::G;
         rnk1[i+1] = RNK::A;
@@ -50,7 +51,7 @@ TEST_F(ClassDeclaration,test_cpy){
     }
 }
 
-TEST_F(ClassDeclaration,test_split){
+TEST_F(RnkFixture,split){
     for (int i = 0; i < 1000; i+=3){
         rnk1[i] = RNK::G;
         rnk1[i+1] = RNK::A;
@@ -62,7 +63,7 @@ TEST_F(ClassDeclaration,test_split){
     }
 }
 
-TEST_F(ClassDeclaration,test_isComplementary){
+TEST_F(RnkFixture,isComplementary){
     for (int i = 0; i < 1000; i+=3){
         rnk1[i] = RNK::G;
         rnk1[i+1] = RNK::A;
@@ -75,7 +76,7 @@ TEST_F(ClassDeclaration,test_isComplementary){
     EXPECT_FALSE(rnk2.isComplementary(rnk1));
 }
 
-TEST_F(ClassDeclaration,test_big_rad){
+TEST_F(RnkFixture,big_rad){
     rnk1[0] = RNK::C;
     rnk1[1000000000] = rnk1[0];
     EXPECT_EQ(rnk1[0],RNK::C);

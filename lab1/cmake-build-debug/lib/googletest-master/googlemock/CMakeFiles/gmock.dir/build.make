@@ -42,10 +42,10 @@ RM = "D:\CLion 2019.3.4\bin\cmake\win\bin\cmake.exe" -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = C:\Users\alex\Desktop\oop\lab1
+CMAKE_SOURCE_DIR = C:\Users\alex\Desktop\github\ooop\lab1
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = C:\Users\alex\Desktop\oop\lab1\cmake-build-debug
+CMAKE_BINARY_DIR = C:\Users\alex\Desktop\github\ooop\lab1\cmake-build-debug
 
 # Include any dependencies generated for this target.
 include lib/googletest-master/googlemock/CMakeFiles/gmock.dir/depend.make
@@ -59,16 +59,16 @@ include lib/googletest-master/googlemock/CMakeFiles/gmock.dir/flags.make
 lib/googletest-master/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.obj: lib/googletest-master/googlemock/CMakeFiles/gmock.dir/flags.make
 lib/googletest-master/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.obj: lib/googletest-master/googlemock/CMakeFiles/gmock.dir/includes_CXX.rsp
 lib/googletest-master/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.obj: ../lib/googletest-master/googlemock/src/gmock-all.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\alex\Desktop\oop\lab1\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object lib/googletest-master/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.obj"
-	cd /d C:\Users\alex\Desktop\oop\lab1\cmake-build-debug\lib\googletest-master\googlemock && C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\gmock.dir\src\gmock-all.cc.obj -c C:\Users\alex\Desktop\oop\lab1\lib\googletest-master\googlemock\src\gmock-all.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\alex\Desktop\github\ooop\lab1\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object lib/googletest-master/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.obj"
+	cd /d C:\Users\alex\Desktop\github\ooop\lab1\cmake-build-debug\lib\googletest-master\googlemock && C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\gmock.dir\src\gmock-all.cc.obj -c C:\Users\alex\Desktop\github\ooop\lab1\lib\googletest-master\googlemock\src\gmock-all.cc
 
 lib/googletest-master/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/gmock.dir/src/gmock-all.cc.i"
-	cd /d C:\Users\alex\Desktop\oop\lab1\cmake-build-debug\lib\googletest-master\googlemock && C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\alex\Desktop\oop\lab1\lib\googletest-master\googlemock\src\gmock-all.cc > CMakeFiles\gmock.dir\src\gmock-all.cc.i
+	cd /d C:\Users\alex\Desktop\github\ooop\lab1\cmake-build-debug\lib\googletest-master\googlemock && C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\alex\Desktop\github\ooop\lab1\lib\googletest-master\googlemock\src\gmock-all.cc > CMakeFiles\gmock.dir\src\gmock-all.cc.i
 
 lib/googletest-master/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/gmock.dir/src/gmock-all.cc.s"
-	cd /d C:\Users\alex\Desktop\oop\lab1\cmake-build-debug\lib\googletest-master\googlemock && C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\alex\Desktop\oop\lab1\lib\googletest-master\googlemock\src\gmock-all.cc -o CMakeFiles\gmock.dir\src\gmock-all.cc.s
+	cd /d C:\Users\alex\Desktop\github\ooop\lab1\cmake-build-debug\lib\googletest-master\googlemock && C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\alex\Desktop\github\ooop\lab1\lib\googletest-master\googlemock\src\gmock-all.cc -o CMakeFiles\gmock.dir\src\gmock-all.cc.s
 
 # Object files for target gmock
 gmock_OBJECTS = \
@@ -80,9 +80,9 @@ gmock_EXTERNAL_OBJECTS =
 lib/libgmockd.a: lib/googletest-master/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.obj
 lib/libgmockd.a: lib/googletest-master/googlemock/CMakeFiles/gmock.dir/build.make
 lib/libgmockd.a: lib/googletest-master/googlemock/CMakeFiles/gmock.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\alex\Desktop\oop\lab1\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX static library ..\..\libgmockd.a"
-	cd /d C:\Users\alex\Desktop\oop\lab1\cmake-build-debug\lib\googletest-master\googlemock && $(CMAKE_COMMAND) -P CMakeFiles\gmock.dir\cmake_clean_target.cmake
-	cd /d C:\Users\alex\Desktop\oop\lab1\cmake-build-debug\lib\googletest-master\googlemock && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\gmock.dir\link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\alex\Desktop\github\ooop\lab1\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX static library ..\..\libgmockd.a"
+	cd /d C:\Users\alex\Desktop\github\ooop\lab1\cmake-build-debug\lib\googletest-master\googlemock && $(CMAKE_COMMAND) -P CMakeFiles\gmock.dir\cmake_clean_target.cmake
+	cd /d C:\Users\alex\Desktop\github\ooop\lab1\cmake-build-debug\lib\googletest-master\googlemock && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\gmock.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 lib/googletest-master/googlemock/CMakeFiles/gmock.dir/build: lib/libgmockd.a
@@ -90,10 +90,10 @@ lib/googletest-master/googlemock/CMakeFiles/gmock.dir/build: lib/libgmockd.a
 .PHONY : lib/googletest-master/googlemock/CMakeFiles/gmock.dir/build
 
 lib/googletest-master/googlemock/CMakeFiles/gmock.dir/clean:
-	cd /d C:\Users\alex\Desktop\oop\lab1\cmake-build-debug\lib\googletest-master\googlemock && $(CMAKE_COMMAND) -P CMakeFiles\gmock.dir\cmake_clean.cmake
+	cd /d C:\Users\alex\Desktop\github\ooop\lab1\cmake-build-debug\lib\googletest-master\googlemock && $(CMAKE_COMMAND) -P CMakeFiles\gmock.dir\cmake_clean.cmake
 .PHONY : lib/googletest-master/googlemock/CMakeFiles/gmock.dir/clean
 
 lib/googletest-master/googlemock/CMakeFiles/gmock.dir/depend:
-	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" C:\Users\alex\Desktop\oop\lab1 C:\Users\alex\Desktop\oop\lab1\lib\googletest-master\googlemock C:\Users\alex\Desktop\oop\lab1\cmake-build-debug C:\Users\alex\Desktop\oop\lab1\cmake-build-debug\lib\googletest-master\googlemock C:\Users\alex\Desktop\oop\lab1\cmake-build-debug\lib\googletest-master\googlemock\CMakeFiles\gmock.dir\DependInfo.cmake --color=$(COLOR)
+	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" C:\Users\alex\Desktop\github\ooop\lab1 C:\Users\alex\Desktop\github\ooop\lab1\lib\googletest-master\googlemock C:\Users\alex\Desktop\github\ooop\lab1\cmake-build-debug C:\Users\alex\Desktop\github\ooop\lab1\cmake-build-debug\lib\googletest-master\googlemock C:\Users\alex\Desktop\github\ooop\lab1\cmake-build-debug\lib\googletest-master\googlemock\CMakeFiles\gmock.dir\DependInfo.cmake --color=$(COLOR)
 .PHONY : lib/googletest-master/googlemock/CMakeFiles/gmock.dir/depend
 

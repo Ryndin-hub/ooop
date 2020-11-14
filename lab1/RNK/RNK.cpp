@@ -33,21 +33,26 @@ RNK::reference::reference(const RNK *pointer, size_t array_position, size_t posi
     arr_pos = array_position;
     pos = position;
 }
+
 RNK::Nucleotide RNK::reference::operator!() const{
     return (Nucleotide) (3 - readBits());
 }
+
 RNK::reference& RNK::reference::operator=(Nucleotide nucleotide){
     writeBits(nucleotide);
     return *this;
 }
+
 RNK::reference& RNK::reference::operator=(const RNK::reference& ref){
     if (this == &ref) return *this;
     writeBits(ref.readBits());
     return *this;
 }
+
 bool RNK::reference::operator==(const RNK::reference& ref) const{
     return readBits() == ref.readBits();
 }
+
 RNK::reference::operator Nucleotide() const{
     return (Nucleotide) readBits();
 }

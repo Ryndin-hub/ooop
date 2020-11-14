@@ -326,17 +326,17 @@ cxxabi.h
 acxx_demangle.h
 -
 
-C:/Users/alex/Desktop/github/ooop/lab1/Tests/RNK.h
+C:/Users/alex/Desktop/github/ooop/lab1/RNK/RNK.cpp
+RNK.h
+C:/Users/alex/Desktop/github/ooop/lab1/RNK/RNK.h
+
+C:/Users/alex/Desktop/github/ooop/lab1/RNK/RNK.h
 iostream
 -
 
 C:/Users/alex/Desktop/github/ooop/lab1/Tests/test.cpp
 gtest/gtest.h
 -
-RNK.h
-C:/Users/alex/Desktop/github/ooop/lab1/Tests/RNK.h
-
-C:/Users/alex/Desktop/github/ooop/lab1/main.cpp
-gtest/gtest.h
--
+../RNK/RNK.h
+C:/Users/alex/Desktop/github/ooop/lab1/RNK/RNK.h
 

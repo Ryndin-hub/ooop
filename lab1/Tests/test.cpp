@@ -1,5 +1,5 @@
 #include <gtest/gtest.h>
-#include "RNK.h"
+#include "../RNK/RNK.h"
 
 namespace {
 class RnkFixture : public testing::Test {

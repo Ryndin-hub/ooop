@@ -220,6 +220,33 @@ gtest_main/fast:
 	$(MAKE) -f lib\googletest-master\googletest\CMakeFiles\gtest_main.dir\build.make lib/googletest-master/googletest/CMakeFiles/gtest_main.dir/build
 .PHONY : gtest_main/fast
 
+RNK/RNK.obj: RNK/RNK.cpp.obj
+
+.PHONY : RNK/RNK.obj
+
+# target to build an object file
+RNK/RNK.cpp.obj:
+	$(MAKE) -f CMakeFiles\lab1.dir\build.make CMakeFiles/lab1.dir/RNK/RNK.cpp.obj
+.PHONY : RNK/RNK.cpp.obj
+
+RNK/RNK.i: RNK/RNK.cpp.i
+
+.PHONY : RNK/RNK.i
+
+# target to preprocess a source file
+RNK/RNK.cpp.i:
+	$(MAKE) -f CMakeFiles\lab1.dir\build.make CMakeFiles/lab1.dir/RNK/RNK.cpp.i
+.PHONY : RNK/RNK.cpp.i
+
+RNK/RNK.s: RNK/RNK.cpp.s
+
+.PHONY : RNK/RNK.s
+
+# target to generate assembly for a file
+RNK/RNK.cpp.s:
+	$(MAKE) -f CMakeFiles\lab1.dir\build.make CMakeFiles/lab1.dir/RNK/RNK.cpp.s
+.PHONY : RNK/RNK.cpp.s
+
 Tests/test.obj: Tests/test.cpp.obj
 
 .PHONY : Tests/test.obj
@@ -291,6 +318,9 @@ help:
 	@echo ... gmock
 	@echo ... gtest
 	@echo ... gtest_main
+	@echo ... RNK/RNK.obj
+	@echo ... RNK/RNK.i
+	@echo ... RNK/RNK.s
 	@echo ... Tests/test.obj
 	@echo ... Tests/test.i
 	@echo ... Tests/test.s

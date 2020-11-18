@@ -95,14 +95,14 @@ RNK& RNK::operator+=(const RNK& rnk){
 }
 
 RNK RNK::operator+(const RNK& rnk) const{
-    RNK *rnk_new = new RNK;
+    RNK rnk_new;
     for (int i = 0; i <= last_nucleotide; i++){
-        rnk_new->operator[](i) = this->operator[](i);
+        rnk_new[i] = this->operator[](i);
     }
     for (int i = 0; i <= rnk.last_nucleotide; i++){
-        rnk_new->operator[](i + last_nucleotide + 1) = rnk[i];
+        rnk_new[i + last_nucleotide + 1] = rnk[i];
     }
-    return *rnk_new;
+    return rnk_new;
 }
 
 bool RNK::operator==(const RNK& rnk) const{
@@ -116,19 +116,19 @@ bool RNK::operator!=(const RNK& rnk) const{
 }
 
 RNK RNK::operator!() const{
-    RNK *rnk_new = new RNK;
+    RNK rnk_new;
     for (int i = 0; i <= last_nucleotide; i++){
-        rnk_new->operator[](i) = !this->operator[](i);
+        rnk_new[i] = !this->operator[](i);
     }
-    return *rnk_new;
+    return rnk_new;
 }
 
 RNK RNK::split(size_t pos) const{
-    RNK *rnk_new = new RNK;
+    RNK rnk_new;
     for (int i = 0; i <= last_nucleotide - pos; i++){
-        rnk_new->operator[](i) = this->operator[](i + pos);
+        rnk_new[i] = this->operator[](i + pos);
     }
-    return *rnk_new;
+    return rnk_new;
 }
 
 bool RNK::isComplementary(const RNK& rnk) const{

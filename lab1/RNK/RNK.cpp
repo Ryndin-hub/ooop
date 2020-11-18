@@ -77,6 +77,7 @@ RNK::reference RNK::operator[](size_t pos) const{
 
 RNK& RNK::operator=(const RNK& rnk) {
     if (this == &rnk) return *this;
+    delete array;
     array = new size_t[rnk.array_size];
     array_size = rnk.array_size;
     last_nucleotide = rnk.last_nucleotide;

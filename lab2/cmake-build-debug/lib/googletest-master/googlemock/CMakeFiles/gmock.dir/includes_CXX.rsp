@@ -1,0 +1,1 @@
+-IC:/Users/alex/Desktop/github/ooop/lab2/lib/googletest-master/googlemock/include -IC:/Users/alex/Desktop/github/ooop/lab2/lib/googletest-master/googlemock -isystem C:/Users/alex/Desktop/github/ooop/lab2/lib/googletest-master/googletest/include -isystem C:/Users/alex/Desktop/github/ooop/lab2/lib/googletest-master/googletest 

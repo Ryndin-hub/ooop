@@ -112,6 +112,7 @@ bool RNK::operator==(const RNK& rnk) const{
     }
     return true;
 }
+
 bool RNK::operator!=(const RNK& rnk) const{
     return !(*this == rnk);
 }

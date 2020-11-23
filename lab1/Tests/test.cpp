@@ -9,12 +9,11 @@ public:
 }
 
 TEST_F(RnkFixture,eq){
-    RNK rnk1,rnk2;
     rnk1[0] = RNK::A;
-    EXPECT_EQ(rnk1[0],RNK::A);
+    ASSERT_EQ(rnk1[0],RNK::A);
     rnk1[0] = rnk2[1] = RNK::G;
-    EXPECT_EQ(rnk1[0],RNK::G);
-    EXPECT_EQ(rnk2[1],RNK::G);
+    ASSERT_EQ(rnk1[0],RNK::G);
+    ASSERT_EQ(rnk2[1],RNK::G);
 }
 
 TEST_F(RnkFixture,plus){
@@ -24,17 +23,17 @@ TEST_F(RnkFixture,plus){
     }
     rnk3 = rnk1 + rnk2;
     for (int i = 0; i < 100; i++){
-        EXPECT_EQ(rnk3[i],rnk1[i]);
-        EXPECT_EQ(rnk3[i+100],rnk2[i]);
+        ASSERT_EQ(rnk3[i],rnk1[i]);
+        ASSERT_EQ(rnk3[i+100],rnk2[i]);
     }
 }
 
-TEST_F(RnkFixture,100mil){
-    for (int i = 0; i < 100000000; i++){
+TEST_F(RnkFixture,1mil){
+    for (int i = 0; i < 1000000; i++){
         rnk1[i] = RNK::C;
     }
-    for (int i = 91; i < 100000000; i+=20317){
-        EXPECT_EQ(rnk1[i],RNK::C);
+    for (int i = 91; i < 1000000; i+=20317){
+        ASSERT_EQ(rnk1[i],RNK::C);
     }
 }
 
@@ -45,9 +44,9 @@ TEST_F(RnkFixture,cpy){
         rnk1[i+2] = RNK::C;
     }
     rnk2 = rnk1;
-    EXPECT_EQ(rnk1,rnk2);
+    ASSERT_EQ(rnk1,rnk2);
     for (int i = 0; i < 1000; i++){
-        EXPECT_EQ(rnk1[i],rnk2[i]);
+        ASSERT_EQ(rnk1[i],rnk2[i]);
     }
 }
 
@@ -59,7 +58,7 @@ TEST_F(RnkFixture,split){
     }
     rnk2 = rnk1.split(100);
     for (int i = 0; i < 1000 - 100; i++){
-        EXPECT_EQ(rnk1[i+100],rnk2[i]);
+        ASSERT_EQ(rnk1[i+100],rnk2[i]);
     }
 }
 
@@ -70,15 +69,21 @@ TEST_F(RnkFixture,isComplementary){
         rnk1[i+2] = RNK::C;
     }
     rnk2 = !rnk1;
-    EXPECT_TRUE(rnk2.isComplementary(rnk1));
+    ASSERT_TRUE(rnk2.isComplementary(rnk1));
     rnk2[10] = RNK::T;
     rnk2[11] = RNK::T;
-    EXPECT_FALSE(rnk2.isComplementary(rnk1));
+    ASSERT_FALSE(rnk2.isComplementary(rnk1));
 }
 
 TEST_F(RnkFixture,big_rad){
     rnk1[0] = RNK::C;
     rnk1[1000000000] = rnk1[0];
-    EXPECT_EQ(rnk1[0],RNK::C);
-    EXPECT_EQ(rnk1[1000000000],RNK::C);
+    ASSERT_EQ(rnk1[0],RNK::C);
+    ASSERT_EQ(rnk1[1000000000],RNK::C);
+}
+
+TEST_F(RnkFixture,unavailibale_pos){
+    for(int i = 0; i < 100000; i++){
+        ASSERT_EQ(rnk1[i],NULL);
+    }
 }

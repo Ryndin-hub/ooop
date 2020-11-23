@@ -19,11 +19,12 @@ private:
     private:
         RNK *rnk_pt;
         size_t arr_pos;
+        size_t size_t_pos;
         size_t pos;
         void writeBits(size_t value);
         int readBits() const;
     public:
-        reference(const RNK *pointer, size_t array_position, size_t position);
+        reference(const RNK *pointer, size_t array_position, size_t size_t_position, size_t position);
         Nucleotide operator!() const;
         reference& operator=(Nucleotide nucleotide);
         reference& operator=(const reference& ref);

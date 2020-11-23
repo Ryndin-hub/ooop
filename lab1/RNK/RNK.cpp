@@ -9,28 +9,30 @@ void RNK::giveMoreMemory(size_t arr_pos, size_t pos){
         for (int i = array_size; i < array_size * 2; i++) {
             new_array[i] = 0;
         }
-        delete array;
+        delete[] array;
         array = new_array;
         array_size *= 2;
     }
-    if ((pos + arr_pos * (4 * sizeof(size_t))) > last_nucleotide) last_nucleotide = (pos + arr_pos * (4 * sizeof(size_t)));
+    if (pos > last_nucleotide) last_nucleotide = pos;
 }
 
 void RNK::reference::writeBits(size_t value){
     rnk_pt->giveMoreMemory(arr_pos,pos);
-    size_t shift = 8 * sizeof(size_t) - 2 - pos * 2;
+    size_t shift = 8 * sizeof(size_t) - 2 - size_t_pos * 2;
     size_t mask = (size_t) 3 << (shift);
     rnk_pt->array[arr_pos] = (rnk_pt->array[arr_pos] & (~mask)) | (value << shift);
 }
 
 int RNK::reference::readBits() const{
-    size_t shift = 8 * sizeof(size_t) - 2 - pos * 2;
+    if (pos > rnk_pt->last_nucleotide) return static_cast<Nucleotide>(NULL);
+    size_t shift = 8 * sizeof(size_t) - 2 - size_t_pos * 2;
     return (int)(((rnk_pt->array[arr_pos]) >> shift) & 3u);
 }
 
-RNK::reference::reference(const RNK *pointer, size_t array_position, size_t position) : rnk_pt(nullptr) {
+RNK::reference::reference(const RNK *pointer, size_t array_position, size_t size_t_position, size_t position) : rnk_pt(nullptr) {
     rnk_pt = const_cast<RNK *>(pointer);
     arr_pos = array_position;
+    size_t_pos = size_t_position;
     pos = position;
 }
 
@@ -67,17 +69,17 @@ RNK::RNK() {
 }
 
 RNK::~RNK() {
-    delete array;
+    delete[] array;
 }
 
 RNK::reference RNK::operator[](size_t pos) const{
-    reference ref(this,pos / (4 * sizeof(size_t)), pos % (4 * sizeof(size_t)));
+    reference ref(this,pos / (4 * sizeof(size_t)), pos % (4 * sizeof(size_t)),pos);
     return ref;
 }
 
 RNK& RNK::operator=(const RNK& rnk) {
     if (this == &rnk) return *this;
-    delete array;
+    delete[] array;
     array = new size_t[rnk.array_size];
     array_size = rnk.array_size;
     last_nucleotide = rnk.last_nucleotide;

@@ -1,77 +1,106 @@
 #include "gameOfLife.h"
 
-void GameOfLife::draw() const{
+int GameOfLife::numberOfAliveNeighbors(int x, int y) const{
+    int sum = 0;
+    sum += prevGrid[(x-1+h)%h][(y-1+w)%w];
+    sum += prevGrid[x][(y-1+w)%w];
+    sum += prevGrid[(x+1)%h][(y-1+w)%w];
+    sum += prevGrid[(x-1+h)%h][y];
+    sum += prevGrid[(x+1)%h][y];
+    sum += prevGrid[(x-1+h)%h][(y+1)%w];
+    sum += prevGrid[x][(y+1)%w];
+    sum += prevGrid[(x+1)%h][(y+1)%w];
+    return sum;
+}
+
+void GameOfLife::updateCell(int x, int y){
+    if (prevGrid[x][y] == 0 && numberOfAliveNeighbors(x,y) == 3){
+        grid[x][y] = 1;
+    } else if (prevGrid[x][y] == 1 && numberOfAliveNeighbors(x,y) < 2){
+        grid[x][y] = 0;
+    } else if (prevGrid[x][y] == 1 && numberOfAliveNeighbors(x,y) > 3){
+        grid[x][y] = 0;
+    }
+}
+
+GameOfLife::GameOfLife(int width, int height) {
+    w = width;
+    h = height;
+    grid = new bool*[w];
+    prevGrid = new bool*[w];
+    for(int i = 0; i < h; i++){
+        grid[i] = new bool[h];
+        prevGrid[i] = new bool[h];
+    }
     for (int i = 0; i < h; i++){
         for (int j = 0; j < w; j++){
-            cellGrid[i][j].draw();
+            grid[i][j] = 0;
+        }
+    }
+}
+
+
+GameOfLife::~GameOfLife() {
+    for (int i = 0; i < h; i++){
+        delete [] grid[i];
+        delete [] prevGrid[i];
+    }
+    delete [] grid;
+    delete [] prevGrid;
+}
+
+std::ostream& operator<<(std::ostream& os, const GameOfLife& game){
+    for (int i = 0; i < game.h; i++){
+        for (int j = 0; j < game.w; j++){
+            std::cout << game.grid[i][j] << ' ';
         }
         std::cout << "\n";
     }
-    std::cout << "Move number: " << numberOfMoves << "\n";
+    std::cout << "Move number: " << game.numberOfMoves << "\n";
+    return os;
 }
 
 void GameOfLife::update() {
     for (int i = 0; i < h; i++){
         for (int j = 0; j < w; j++){
-            cellGrid[i][j].update1();
+            prevGrid[i][j] = grid[i][j];
         }
     }
     for (int i = 0; i < h; i++){
         for (int j = 0; j < w; j++){
-            cellGrid[i][j].update2();
+            updateCell(i,j);
         }
     }
     numberOfMoves++;
 }
 
-GameOfLife::GameOfLife() {
-    for (int i = 0; i < h; i++){
-        for (int j = 0; j < w; j++){
-            Cell *neighbors[8];
-            neighbors[0] = &cellGrid[(i-1+h)%h][(j-1+w)%w];
-            neighbors[1] = &cellGrid[i][(j-1+w)%w];
-            neighbors[2] = &cellGrid[(i+1)%h][(j-1+w)%w];
-            neighbors[3] = &cellGrid[(i-1+h)%h][j];
-            neighbors[4] = &cellGrid[(i+1)%h][j];
-            neighbors[5] = &cellGrid[(i-1+h)%h][(j+1)%w];
-            neighbors[6] = &cellGrid[i][(j+1)%w];
-            neighbors[7] = &cellGrid[(i+1)%h][(j+1)%w];
-            cellGrid[i][j].setNeighbors(neighbors);
-        }
-    }
+void GameOfLife::set(int x, int y) {
+    grid[x][y] = 1;
 }
 
-void GameOfLife::set(int a, int b) {
-    cellGrid[a][b].setState(1);
-}
-
-void GameOfLife::clear(int a, int b) {
-    cellGrid[a][b].setState(0);
+void GameOfLife::clear(int x, int y) {
+    grid[x][y] = 0;
 }
 
 void GameOfLife::back() {
-    for (int i = 0; i < h; i++){
-        for (int j = 0; j < w; j++){
-            cellGrid[i][j].swapState();
-        }
-    }
+    std::swap(grid,prevGrid);
 }
 
 void GameOfLife::reset() {
     for (int i = 0; i < h; i++){
         for (int j = 0; j < w; j++){
-            cellGrid[i][j].setState(0);
+            grid[i][j] = 0;
         }
     }
     numberOfMoves = 0;
 }
 
-void GameOfLife::save(const std::string& path) const{
-    std::ofstream file(path + ".txt");
+void GameOfLife::save(const std::string& fileName) const{
+    std::ofstream file(fileName + ".txt");
     file.clear();
     for (int i = 0; i < h; i++){
         for (int j = 0; j < w; j++){
-            cellGrid[i][j].save(file);
+            file << grid[i][j] << ' ';
         }
         file << "\n";
     }
@@ -79,107 +108,47 @@ void GameOfLife::save(const std::string& path) const{
     file.close();
 }
 
-void GameOfLife::load(const std::string& path){
-    std::ifstream file(path + ".txt");
+void GameOfLife::load(const std::string& fileName){
+    std::ifstream file(fileName + ".txt");
     for (int i = 0; i < h; i++){
         for (int j = 0; j < w; j++){
-            cellGrid[i][j].load(file);
+            file >> grid[i][j];
         }
     }
     file.close();
     numberOfMoves = 0;
 }
 
-void Cell::update1() {
-    previousState = state;
-}
-
-void Cell::update2() {
-    if (state == 0 && calculateNumberOfAliveNeighbors() == 3){
-        state = 1;
-        return;
-    }
-    if (state == 1 && calculateNumberOfAliveNeighbors() < 2){
-        state = 0;
-        return;
-    }
-    if (state == 1 && calculateNumberOfAliveNeighbors() > 3){
-        state = 0;
-        return;
-    }
-}
-
-int Cell::calculateNumberOfAliveNeighbors() const{
-    int num = 0;
-    for (int i = 0; i < 8; i++){
-        if (neighbors[i] != nullptr) num += neighbors[i]->previousState;
-    }
-    return num;
-}
-
-void Cell::draw() const{
-    if (state == 0) std::cout << " ' ";
-    else std::cout << " * ";
-}
-
-void Cell::setNeighbors(Cell *ptr[8]) {
-    for (int i = 0; i < 8; i++){
-        neighbors[i] = ptr[i];
-    }
-}
-
-void Cell::setState(bool a) {
-    state = a;
-}
-
-void Cell::swapState() {
-    bool tmp = state;
-    state = previousState;
-    previousState = tmp;
-}
-
-void Cell::save(std::ofstream &file) const{
-    file << state << ' ';
-}
-
-void Cell::load(std::ifstream &file){
-    file >> state;
-}
-
 void GameHandler::runGame() {
     gameStatus = 1;
     while (gameStatus == 1){
         std::string input;
-        std::cin >> input;
+        getline(std::cin,input);
         if (input == "reset"){
             game.reset();
-        } else if (input == "set"){
-            std::string XY;
-            std::cin >> XY;
-            game.set(XY[0] - 'A',XY[1] - '0');
-        } else if (input == "clear"){
-            std::string XY;
-            std::cin >> XY;
-            game.clear(XY[0] - 'A',XY[1] - '0');
-        } else if (input == "step"){
-            std::string N;
-            std::cin >> N;
-            for (int i = 0; i < std::stoi(N); i++){
-                game.update();
+        } else if (input.substr(0,3) == "set"){
+            game.set(input[4] - 'A',input[5] - '0');
+        } else if (input.substr(0,5) == "clear"){
+            game.clear(input[6] - 'A',input[7] - '0');
+        } else if (input.substr(0,4) == "step"){
+            if (input.length() == 4) game.update();
+            else {
+                int N = std::stoi(input.substr(5));
+                for (int i = 0; i < N; i++){
+                    game.update();
+                }
             }
-        } else if (input == "back"){
+        } else if (input.substr(0,4) == "back"){
             game.back();
-        } else if (input == "save"){
-            std::string path;
-            std::cin >> path;
-            game.save(path);
-        } else if (input == "load"){
-            std::string path;
-            std::cin >> path;
-            game.load(path);
+        } else if (input.substr(0,4) == "save"){
+            std::string fileName = input.substr(5);
+            game.save(fileName);
+        } else if (input.substr(0,4) == "load"){
+            std::string fileName = input.substr(5);
+            game.load(fileName);
         } else if (input == "end"){
             gameStatus = 0;
         }
-        game.draw();
+        std::cout << game;
     }
 }

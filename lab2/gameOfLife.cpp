@@ -20,7 +20,7 @@ void GameOfLife::updateCell(int x, int y){
         grid[x][y] = 0;
     } else if (prevGrid[x][y] == 1 && numberOfAliveNeighbors(x,y) > 3){
         grid[x][y] = 0;
-    }
+    } else grid[x][y] = prevGrid[x][y];
 }
 
 GameOfLife::GameOfLife(int width, int height) {
@@ -61,11 +61,7 @@ std::ostream& operator<<(std::ostream& os, const GameOfLife& game){
 }
 
 void GameOfLife::update() {
-    for (int i = 0; i < h; i++){
-        for (int j = 0; j < w; j++){
-            prevGrid[i][j] = grid[i][j];
-        }
-    }
+    std::swap(prevGrid,grid);
     for (int i = 0; i < h; i++){
         for (int j = 0; j < w; j++){
             updateCell(i,j);

@@ -60,43 +60,43 @@ CMakeFiles/lab1.dir/main.cpp.obj: CMakeFiles/lab1.dir/flags.make
 CMakeFiles/lab1.dir/main.cpp.obj: CMakeFiles/lab1.dir/includes_CXX.rsp
 CMakeFiles/lab1.dir/main.cpp.obj: ../main.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\alex\Desktop\github\ooop\lab1\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/lab1.dir/main.cpp.obj"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\lab1.dir\main.cpp.obj -c C:\Users\alex\Desktop\github\ooop\lab1\main.cpp
+	C:\PROGRA~1\MINGW-~1\X86_64~2.0-P\mingw64\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\lab1.dir\main.cpp.obj -c C:\Users\alex\Desktop\github\ooop\lab1\main.cpp
 
 CMakeFiles/lab1.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/lab1.dir/main.cpp.i"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\alex\Desktop\github\ooop\lab1\main.cpp > CMakeFiles\lab1.dir\main.cpp.i
+	C:\PROGRA~1\MINGW-~1\X86_64~2.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\alex\Desktop\github\ooop\lab1\main.cpp > CMakeFiles\lab1.dir\main.cpp.i
 
 CMakeFiles/lab1.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/lab1.dir/main.cpp.s"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\alex\Desktop\github\ooop\lab1\main.cpp -o CMakeFiles\lab1.dir\main.cpp.s
+	C:\PROGRA~1\MINGW-~1\X86_64~2.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\alex\Desktop\github\ooop\lab1\main.cpp -o CMakeFiles\lab1.dir\main.cpp.s
 
 CMakeFiles/lab1.dir/Tests/test.cpp.obj: CMakeFiles/lab1.dir/flags.make
 CMakeFiles/lab1.dir/Tests/test.cpp.obj: CMakeFiles/lab1.dir/includes_CXX.rsp
 CMakeFiles/lab1.dir/Tests/test.cpp.obj: ../Tests/test.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\alex\Desktop\github\ooop\lab1\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/lab1.dir/Tests/test.cpp.obj"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\lab1.dir\Tests\test.cpp.obj -c C:\Users\alex\Desktop\github\ooop\lab1\Tests\test.cpp
+	C:\PROGRA~1\MINGW-~1\X86_64~2.0-P\mingw64\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\lab1.dir\Tests\test.cpp.obj -c C:\Users\alex\Desktop\github\ooop\lab1\Tests\test.cpp
 
 CMakeFiles/lab1.dir/Tests/test.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/lab1.dir/Tests/test.cpp.i"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\alex\Desktop\github\ooop\lab1\Tests\test.cpp > CMakeFiles\lab1.dir\Tests\test.cpp.i
+	C:\PROGRA~1\MINGW-~1\X86_64~2.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\alex\Desktop\github\ooop\lab1\Tests\test.cpp > CMakeFiles\lab1.dir\Tests\test.cpp.i
 
 CMakeFiles/lab1.dir/Tests/test.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/lab1.dir/Tests/test.cpp.s"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\alex\Desktop\github\ooop\lab1\Tests\test.cpp -o CMakeFiles\lab1.dir\Tests\test.cpp.s
+	C:\PROGRA~1\MINGW-~1\X86_64~2.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\alex\Desktop\github\ooop\lab1\Tests\test.cpp -o CMakeFiles\lab1.dir\Tests\test.cpp.s
 
 CMakeFiles/lab1.dir/RNK/RNK.cpp.obj: CMakeFiles/lab1.dir/flags.make
 CMakeFiles/lab1.dir/RNK/RNK.cpp.obj: CMakeFiles/lab1.dir/includes_CXX.rsp
 CMakeFiles/lab1.dir/RNK/RNK.cpp.obj: ../RNK/RNK.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\alex\Desktop\github\ooop\lab1\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/lab1.dir/RNK/RNK.cpp.obj"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\lab1.dir\RNK\RNK.cpp.obj -c C:\Users\alex\Desktop\github\ooop\lab1\RNK\RNK.cpp
+	C:\PROGRA~1\MINGW-~1\X86_64~2.0-P\mingw64\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\lab1.dir\RNK\RNK.cpp.obj -c C:\Users\alex\Desktop\github\ooop\lab1\RNK\RNK.cpp
 
 CMakeFiles/lab1.dir/RNK/RNK.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/lab1.dir/RNK/RNK.cpp.i"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\alex\Desktop\github\ooop\lab1\RNK\RNK.cpp > CMakeFiles\lab1.dir\RNK\RNK.cpp.i
+	C:\PROGRA~1\MINGW-~1\X86_64~2.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\alex\Desktop\github\ooop\lab1\RNK\RNK.cpp > CMakeFiles\lab1.dir\RNK\RNK.cpp.i
 
 CMakeFiles/lab1.dir/RNK/RNK.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/lab1.dir/RNK/RNK.cpp.s"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\alex\Desktop\github\ooop\lab1\RNK\RNK.cpp -o CMakeFiles\lab1.dir\RNK\RNK.cpp.s
+	C:\PROGRA~1\MINGW-~1\X86_64~2.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\alex\Desktop\github\ooop\lab1\RNK\RNK.cpp -o CMakeFiles\lab1.dir\RNK\RNK.cpp.s
 
 # Object files for target lab1
 lab1_OBJECTS = \

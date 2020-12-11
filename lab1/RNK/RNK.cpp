@@ -29,8 +29,8 @@ int RNK::reference::readBits() const{
     return (int)(((rnk_pt->array[arr_pos]) >> shift) & 3u);
 }
 
-RNK::reference::reference(const RNK *pointer, size_t array_position, size_t size_t_position, size_t position) : rnk_pt(nullptr) {
-    rnk_pt = const_cast<RNK *>(pointer);
+RNK::reference::reference(RNK *pointer, size_t array_position, size_t size_t_position, size_t position) : rnk_pt(nullptr) {
+    rnk_pt = pointer;
     arr_pos = array_position;
     size_t_pos = size_t_position;
     pos = position;
@@ -51,11 +51,49 @@ RNK::reference& RNK::reference::operator=(const RNK::reference& ref){
     return *this;
 }
 
+RNK::reference& RNK::reference::operator=(const RNK::const_reference& ref){
+    writeBits(ref.readBits());
+    return *this;
+}
+
 bool RNK::reference::operator==(const RNK::reference& ref) const{
     return readBits() == ref.readBits();
 }
 
+bool RNK::reference::operator==(const RNK::const_reference& ref) const{
+    return readBits() == ref.readBits();
+}
+
 RNK::reference::operator Nucleotide() const{
+    return (Nucleotide) readBits();
+}
+
+int RNK::const_reference::readBits() const{
+    if (pos > rnk_pt->last_nucleotide) return 0;
+    size_t shift = 8 * sizeof(size_t) - 2 - size_t_pos * 2;
+    return (int)(((rnk_pt->array[arr_pos]) >> shift) & 3u);
+}
+
+RNK::const_reference::const_reference(const RNK *pointer, size_t array_position, size_t size_t_position, size_t position) : rnk_pt(nullptr) {
+    rnk_pt = pointer;
+    arr_pos = array_position;
+    size_t_pos = size_t_position;
+    pos = position;
+}
+
+RNK::Nucleotide RNK::const_reference::operator!() const{
+    return (Nucleotide) (3 - readBits());
+}
+
+bool RNK::const_reference::operator==(const RNK::reference& ref) const{
+    return readBits() == ref.readBits();
+}
+
+bool RNK::const_reference::operator==(const RNK::const_reference& ref) const{
+    return readBits() == ref.readBits();
+}
+
+RNK::const_reference::operator Nucleotide() const{
     return (Nucleotide) readBits();
 }
 
@@ -72,8 +110,24 @@ RNK::~RNK() {
     delete[] array;
 }
 
-RNK::reference RNK::operator[](size_t pos) const{
+RNK::RNK(const RNK& rnk) {
+    if (this == &rnk) return;
+    delete[] array;
+    array = new size_t[rnk.array_size];
+    array_size = rnk.array_size;
+    last_nucleotide = rnk.last_nucleotide;
+    for (int i = 0; i < array_size; i++) {
+        array[i] = rnk.array[i];
+    }
+}
+
+RNK::reference RNK::operator[](size_t pos){
     reference ref(this,pos / (4 * sizeof(size_t)), pos % (4 * sizeof(size_t)),pos);
+    return ref;
+}
+
+RNK::const_reference RNK::operator[](size_t pos) const{
+    const_reference ref(this,pos / (4 * sizeof(size_t)), pos % (4 * sizeof(size_t)),pos);
     return ref;
 }
 
@@ -129,8 +183,14 @@ RNK RNK::operator!() const{
 
 RNK RNK::split(size_t pos) const{
     RNK rnk_new;
-    for (int i = 0; i <= last_nucleotide - pos; i++){
-        rnk_new[i] = this->operator[](i + pos);
+    if (pos >= last_nucleotide){
+        for (int i = 0; i <= last_nucleotide; i++){
+            rnk_new[i] = this->operator[](i + pos);
+        }
+    } else {
+        for (int i = 0; i <= last_nucleotide - pos; i++) {
+            rnk_new[i] = this->operator[](i + pos);
+        }
     }
     return rnk_new;
 }
@@ -142,4 +202,3 @@ bool RNK::isComplementary(const RNK& rnk) const{
     }
     return true;
 }
-

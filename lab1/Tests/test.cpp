@@ -8,12 +8,19 @@ public:
 };
 }
 
+/*
+TEST_F(RnkFixture,const){
+    const RNK rnk4;
+    rnk4[10] = RNK::C;
+    ASSERT_EQ(rnk4[10],RNK::C);
+}*/
+
 TEST_F(RnkFixture,eq){
     rnk1[0] = RNK::A;
-    ASSERT_EQ(rnk1[0],RNK::A);
+    EXPECT_EQ(rnk1[0],RNK::A);
     rnk1[0] = rnk2[1] = RNK::G;
-    ASSERT_EQ(rnk1[0],RNK::G);
-    ASSERT_EQ(rnk2[1],RNK::G);
+    EXPECT_EQ(rnk1[0],RNK::G);
+    EXPECT_EQ(rnk2[1],RNK::G);
 }
 
 TEST_F(RnkFixture,plus){
@@ -48,6 +55,11 @@ TEST_F(RnkFixture,cpy){
     for (int i = 0; i < 1000; i++){
         ASSERT_EQ(rnk1[i],rnk2[i]);
     }
+    const RNK rnk4(rnk1);
+    ASSERT_EQ(rnk1,rnk4);
+    for (int i = 0; i < 1000; i++){
+        ASSERT_EQ(rnk4[i],rnk1[i]);
+    }
 }
 
 TEST_F(RnkFixture,split){
@@ -80,6 +92,13 @@ TEST_F(RnkFixture,big_rad){
     rnk1[1000000000] = rnk1[0];
     ASSERT_EQ(rnk1[0],RNK::C);
     ASSERT_EQ(rnk1[1000000000],RNK::C);
+}
+
+TEST_F(RnkFixture,empty_split){
+    rnk2 = rnk1.split(100);
+    for(int i = 0; i < 100; i++){
+        ASSERT_EQ(rnk1[i],NULL);
+    }
 }
 
 TEST_F(RnkFixture,unavailibale_pos){

@@ -1,0 +1,29 @@
+//stock
+summon collector
+select 1
+
+//autoscan
+summon collector
+select 1
+setmode autoscan
+auto 100000
+
+//autoscan + defuse
+summon collector
+summon defuser
+select 1
+setmode autoscan
+select 2
+setmode autodefuse
+select 1
+auto 10000
+
+//autocollect + defuse
+summon collector
+summon defuser
+select 1
+setmode autocollect
+select 2
+setmode autodefuse
+select 1
+auto 1000

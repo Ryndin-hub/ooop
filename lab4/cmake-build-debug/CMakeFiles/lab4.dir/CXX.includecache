@@ -1,0 +1,26 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/alex/Desktop/github/ooop/lab4/CSVParser.h
+iostream
+-
+tuple
+-
+fstream
+-
+vector
+-
+sstream
+-
+
+C:/Users/alex/Desktop/github/ooop/lab4/main.cpp
+iostream
+-
+CSVParser.h
+C:/Users/alex/Desktop/github/ooop/lab4/CSVParser.h
+

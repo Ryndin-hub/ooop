@@ -12,10 +12,14 @@ template<typename Type>
 Type parse_word(const std::string &str){
     std::stringstream ss(str);
     Type value;
-    ss >> std::noskipws >> value;
+    ss >> value;
     return value;
 }
 
+template<>
+std::string parse_word(const std::string &str){
+    return str;
+}
 
 template<typename Type, unsigned N, unsigned Last>
 class tuple_parser {

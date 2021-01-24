@@ -12,7 +12,7 @@ template<typename Type>
 Type parse_word(const std::string &str){
     std::stringstream ss(str);
     Type value;
-    ss >> value;
+    if(!(ss >> value)) throw std::exception();
     return value;
 }
 
@@ -25,7 +25,11 @@ template<typename Type, unsigned N, unsigned Last>
 class tuple_parser {
 public:
     static void parse(Type &tuple, const std::vector<std::string> &words) {
-        std::get<N>(tuple) = parse_word<typename std::tuple_element<N, Type>::type>(words[N]);
+        try {
+            std::get<N>(tuple) = parse_word<typename std::tuple_element<N, Type>::type>(words[N]);
+        } catch (std::exception&){
+            throw std::invalid_argument(std::to_string(N+1));
+        }
         tuple_parser<Type, N + 1, Last>::parse(tuple, words);
     }
 };
@@ -34,7 +38,11 @@ template<typename Type, unsigned N>
 class tuple_parser<Type, N, N> {
 public:
     static void parse(Type &tuple, const std::vector<std::string> &words) {
-        std::get<N>(tuple) = parse_word<typename std::tuple_element<N, Type>::type>(words[N]);
+        try {
+            std::get<N>(tuple) = parse_word<typename std::tuple_element<N, Type>::type>(words[N]);
+        } catch (std::exception&){
+            throw std::invalid_argument(std::to_string(N+1));
+        }
     }
 };
 
@@ -133,7 +141,11 @@ public:
         }
         std::tuple<Args...> operator*(){
             row = parser->get_row(index);
-            return parser->parse_row(row);
+            try {
+                return parser->parse_row(row);
+            } catch (std::exception& e){
+                throw std::invalid_argument("Wrong type on Line " + std::to_string(index+1) + " Column " + e.what() + '\n');
+            }
         }
         CSVIterator(int _index, CSVParser<Args...> *_parser): index(_index), parser(_parser){}
     };

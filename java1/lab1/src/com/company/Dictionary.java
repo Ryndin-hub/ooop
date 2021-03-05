@@ -7,8 +7,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Dictionary {
-    Map<String, String> code = new HashMap<String, String>();
-    Map<String, String> decode = new HashMap<String, String>();
+    Map<String, String> code = new HashMap<>();
+    Map<String, String> decode = new HashMap<>();
 
     Dictionary(String file){
         try {

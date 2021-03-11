@@ -38,6 +38,7 @@ public class Decoder {
                 printStream.println();
                 line = reader.readLine();
             }
+            printStream = new PrintStream("stats.txt");
             List<CharCounter> sortedStatistics = statistics.stream().sorted().collect(Collectors.toList());
             for(CharCounter character: sortedStatistics){
                 printStream.println(character.character + " " + character.counter);

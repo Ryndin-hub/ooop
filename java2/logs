@@ -1,0 +1,104 @@
+2021-04-30 03:44:11 INFO  Init:11 - Init command created
+2021-04-30 03:44:14 INFO  Move:11 - Move command created
+2021-04-30 03:44:14 INFO  Move:27 - Moved up 3 steps
+2021-04-30 03:44:17 INFO  Draw:10 - Draw command created
+2021-04-30 03:44:17 INFO  Draw:14 - Turtle is now drawing
+2021-04-30 03:44:20 INFO  Move:32 - Moved down 10 steps
+2021-04-30 04:34:01 INFO  Init:11 - Init command created
+2021-04-30 04:34:07 INFO  Teleport:10 - Teleport command created
+2021-04-30 04:34:07 INFO  Teleport:23 - Turtle teleported to 1 1
+2021-04-30 04:35:46 INFO  Init:11 - Init command created
+2021-04-30 04:35:46 ERROR Init:25 - Bad arguments
+2021-04-30 04:35:53 ERROR Init:25 - Bad arguments
+2021-04-30 04:36:34 INFO  Init:11 - Init command created
+2021-04-30 04:37:27 INFO  Init:11 - Init command created
+2021-04-30 04:37:46 INFO  Init:11 - Init command created
+2021-04-30 04:38:28 INFO  Init:11 - Init command created
+2021-04-30 04:38:53 INFO  Init:11 - Init command created
+2021-04-30 04:38:53 ERROR Init:25 - Bad arguments
+2021-04-30 04:38:53 ERROR Init:16 - Too few arguments
+2021-04-30 04:38:53 ERROR Init:25 - Bad arguments
+2021-04-30 04:39:09 INFO  Init:11 - Init command created
+2021-04-30 04:39:37 INFO  Init:11 - Init command created
+2021-04-30 04:39:37 ERROR Init:25 - Bad arguments
+2021-04-30 04:40:00 INFO  Init:11 - Init command created
+2021-04-30 04:40:00 ERROR Init:25 - Bad arguments
+2021-04-30 04:40:00 ERROR Init:25 - Bad arguments
+2021-04-30 04:40:00 ERROR Init:16 - Too few arguments
+2021-04-30 04:40:00 ERROR Init:25 - Bad arguments
+2021-04-30 04:42:32 INFO  Move:11 - Move command created
+2021-04-30 04:42:32 INFO  Move:32 - Moved down 10 steps
+2021-04-30 04:43:35 INFO  Move:11 - Move command created
+2021-04-30 04:43:35 INFO  Move:32 - Moved down 10 steps
+2021-04-30 04:43:35 ERROR Move:47 - Wrong direction
+2021-04-30 04:43:35 ERROR Move:21 - Bad arguments
+2021-04-30 04:44:01 INFO  Move:11 - Move command created
+2021-04-30 04:44:01 INFO  Move:32 - Moved down 10 steps
+2021-04-30 04:44:01 ERROR Move:47 - Wrong direction
+2021-04-30 04:44:01 ERROR Move:21 - Bad arguments
+2021-04-30 04:44:01 ERROR Move:21 - Bad arguments
+2021-04-30 04:45:53 INFO  Teleport:10 - Teleport command created
+2021-04-30 04:45:53 INFO  Teleport:23 - Turtle teleported to 0 0
+2021-04-30 04:45:53 ERROR Teleport:20 - Bad arguments
+2021-04-30 04:46:25 INFO  Teleport:10 - Teleport command created
+2021-04-30 04:46:25 INFO  Teleport:23 - Turtle teleported to 0 0
+2021-04-30 04:46:25 ERROR Teleport:20 - Bad arguments
+2021-04-30 04:46:25 ERROR Teleport:20 - Bad arguments
+2021-04-30 04:46:25 ERROR Teleport:20 - Bad arguments
+2021-04-30 04:47:01 INFO  Teleport:10 - Teleport command created
+2021-04-30 04:47:01 INFO  Teleport:23 - Turtle teleported to 0 0
+2021-04-30 04:47:01 ERROR Teleport:20 - Bad arguments
+2021-04-30 04:47:01 ERROR Teleport:20 - Bad arguments
+2021-04-30 04:47:01 ERROR Teleport:20 - Bad arguments
+2021-04-30 04:47:01 ERROR Teleport:15 - Too few arguments
+2021-04-30 04:47:15 INFO  Init:11 - Init command created
+2021-04-30 04:47:20 INFO  Draw:10 - Draw command created
+2021-04-30 04:47:20 INFO  Draw:14 - Turtle is now drawing
+2021-04-30 04:47:23 INFO  Move:11 - Move command created
+2021-04-30 04:47:23 INFO  Move:32 - Moved down 3 steps
+2021-04-30 04:47:26 INFO  Move:37 - Moved left 3 steps
+2021-04-30 04:47:28 INFO  Move:27 - Moved up 3 steps
+2021-04-30 04:47:30 INFO  Move:42 - Moved right 3 steps
+2021-04-30 04:47:33 INFO  Ward:10 - Ward command created
+2021-04-30 04:47:33 INFO  Ward:14 - Turtle is no longer drawing
+2021-04-30 04:47:35 INFO  Move:42 - Moved right 3 steps
+2021-04-30 04:51:02 INFO  Init:11 - Init command created
+2021-04-30 04:51:08 INFO  Draw:10 - Draw command created
+2021-04-30 04:51:08 INFO  Draw:14 - Turtle is now drawing
+2021-04-30 04:51:14 INFO  Move:11 - Move command created
+2021-04-30 04:51:14 INFO  Move:42 - Moved right 10000 steps
+2021-04-30 04:51:34 INFO  Init:11 - Init command created
+2021-04-30 04:51:34 ERROR Init:25 - Bad arguments
+2021-04-30 04:51:41 INFO  Move:11 - Move command created
+2021-04-30 04:51:41 INFO  Move:42 - Moved right 3 steps
+2021-04-30 04:51:43 INFO  Draw:10 - Draw command created
+2021-04-30 04:51:43 INFO  Draw:14 - Turtle is now drawing
+2021-04-30 11:19:16 INFO  Init:11 - Init command created
+2021-04-30 11:26:25 INFO  Init:11 - Init command created
+2021-04-30 11:26:29 INFO  Move:11 - Move command created
+2021-04-30 11:26:29 INFO  Move:27 - Moved up 3 steps
+2021-04-30 11:27:31 INFO  Init:11 - Init command created
+2021-04-30 11:27:36 INFO  Move:11 - Move command created
+2021-04-30 11:27:36 INFO  Move:27 - Moved up 300 steps
+2021-04-30 11:29:24 INFO  Init:11 - Init command created
+2021-04-30 11:29:24 ERROR Init:25 - Bad arguments
+2021-04-30 11:29:24 ERROR Init:25 - Bad arguments
+2021-04-30 11:29:24 ERROR Init:16 - Too few arguments
+2021-04-30 11:29:24 ERROR Init:25 - Bad arguments
+2021-04-30 11:29:30 INFO  Move:11 - Move command created
+2021-04-30 11:29:30 INFO  Move:32 - Moved down 10 steps
+2021-04-30 11:29:30 ERROR Move:47 - Wrong direction
+2021-04-30 11:29:30 ERROR Move:21 - Bad arguments
+2021-04-30 11:29:30 ERROR Move:21 - Bad arguments
+2021-04-30 11:29:35 INFO  Teleport:10 - Teleport command created
+2021-04-30 11:29:35 INFO  Teleport:23 - Turtle teleported to 0 0
+2021-04-30 11:29:35 ERROR Teleport:20 - Bad arguments
+2021-04-30 11:29:35 ERROR Teleport:20 - Bad arguments
+2021-04-30 11:29:35 ERROR Teleport:20 - Bad arguments
+2021-04-30 11:29:35 ERROR Teleport:15 - Too few arguments
+2021-04-30 11:29:47 INFO  Init:11 - Init command created
+2021-04-30 11:29:49 INFO  Move:11 - Move command created
+2021-04-30 11:29:49 INFO  Move:27 - Moved up 3 steps
+2021-04-30 11:29:52 INFO  Draw:10 - Draw command created
+2021-04-30 11:29:52 INFO  Draw:14 - Turtle is now drawing
+2021-04-30 11:29:55 INFO  Move:32 - Moved down 100 steps

@@ -41,7 +41,7 @@ public class Game extends JFrame {
         }
         particles_img = new BufferedImage(track_width, track_height, BufferedImage.TYPE_INT_ARGB);
         cars_img = new BufferedImage(track_width, track_height, BufferedImage.TYPE_INT_ARGB);
-        final_img = new BufferedImage(track_width, track_height, BufferedImage.TYPE_INT_ARGB);
+        final_img = new BufferedImage(window_width, window_height, BufferedImage.TYPE_INT_ARGB);
 
         g1 = (Graphics2D) track_img.getGraphics();
         g2 = (Graphics2D) particles_img.getGraphics();
@@ -64,7 +64,7 @@ public class Game extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(window_width,window_height);
 
-        new Timer().schedule(new MainLoop(), 100, 30);
+        new Timer().schedule(new MainLoop(), 50, 30);
     }
 
     public void update() {
@@ -115,15 +115,15 @@ public class Game extends JFrame {
         g3.setBackground(new Color(0, 0, 0, 0));
         g3.clearRect(x_img_start, y_img_start, window_width, window_height);
         car.draw(g3, g2);
-        g4.drawImage(track_img, 0, 0, null);
-        g4.drawImage(particles_img, 0, 0, null);
-        g4.drawImage(cars_img, 0, 0, null);
-        g2d.drawImage(final_img.getSubimage(x_img_start, y_img_start, window_width, window_height), 0, 0, null);
+        g4.drawImage(track_img.getSubimage(x_img_start, y_img_start, window_width, window_height), 0, 0, null);
+        g4.drawImage(particles_img.getSubimage(x_img_start, y_img_start, window_width, window_height), 0, 0, null);
+        g4.drawImage(cars_img.getSubimage(x_img_start, y_img_start, window_width, window_height), 0, 0, null);
+        g2d.drawImage(final_img, 0, 0, null);
         //g2d.drawImage(particles_img.getSubimage(x_img_start, y_img_start, window_width, window_height), 0, 0, null);
         //g2d.drawImage(cars_img.getSubimage(x_img_start, y_img_start, window_width, window_height), 0, 0, null);
 
-        tick++;
-        System.out.println(tick);
+        //tick++;
+        //System.out.println(tick);
     }
 
     @Override
@@ -139,8 +139,14 @@ public class Game extends JFrame {
     private class MainLoop extends TimerTask {
         @Override
         public void run() {
+            long start = System.nanoTime();
             update();
+            long finish = System.nanoTime();
+            System.out.println("update: " + (finish - start));
+            start = System.nanoTime();
             repaint();
+            finish = System.nanoTime();
+            System.out.println("repaint: " + (finish - start));
         }
     }
 

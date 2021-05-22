@@ -23,24 +23,30 @@ import java.awt.*;
 public class Car {
     private BufferedImage car_img= ImageIO.read(getClass().getResourceAsStream("suba.png"));
 
-    public double mass = 800; // em kilograma
+    public double mass_cf = 2800;
+    public double braking_cf = 500;
+    public double drag_cf = 0.4257;
+    public double rolling_resistance_cf = 12.8;
+    public double max_engine_cf = 500;
+    public double engine_acceleration_cf = 40;
+    public double tyre_cf = 0.4;
+    public double drift_cf = 5;
+    public double drift_angle_cf = 30;
+
     public Vector position = new Vector();
     public Vector direction = new Vector(0, 1);
     public Vector velocity = new Vector();
     public Vector acceleration = new Vector();
 
-    public double cBraking = 500;
     public boolean isBraking = false;
     public Vector fBraking = new Vector();
 
     public double engineForce = 0;
     public Vector fTraction = new Vector();
 
-    public double cDrag = 0.4257;
     public Vector fDrag = new Vector();
 
     public Vector fRolingResistence = new Vector();
-    public double cRolingResistence = 12.8;
 
     public Vector fLongtitudinal = new Vector();
 
@@ -51,34 +57,32 @@ public class Car {
 
     public void update(boolean[] keyboard) {
 
-        double cTyre = 0.4;
-
-        double dif = cTyre * (velocity.getSize() / 60.0);
+        double dif = tyre_cf * (velocity.getSize() / 60.0);
 
         if (keyboard[37]) {
-            if (velocity.getSize() < 10) direction.rotate(Math.toRadians((-cTyre) * (velocity.getSize())));
-            else direction.rotate(Math.toRadians((-cTyre) * 200/(10 + velocity.getSize())));
+            if (velocity.getSize() < 10) direction.rotate(Math.toRadians((-tyre_cf) * (velocity.getSize())));
+            else direction.rotate(Math.toRadians((-drag_cf) * 200/(10 + velocity.getSize())));
         }
         else if (keyboard[39]) {
-            if (velocity.getSize() < 10) direction.rotate(Math.toRadians((cTyre) * (velocity.getSize())));
-            else direction.rotate(Math.toRadians((cTyre) * 200/(10 + velocity.getSize())));
+            if (velocity.getSize() < 10) direction.rotate(Math.toRadians((tyre_cf) * (velocity.getSize())));
+            else direction.rotate(Math.toRadians((drag_cf) * 200/(10 + velocity.getSize())));
         }
 
         double difAngle = velocity.getRelativeAngleBetween(direction);
         if (!Double.isNaN(difAngle)){
-            double r = Math.random() * 50;
             velocity.rotate(difAngle/((75)*(5*dif)));
-            isDrifting = Math.abs(Math.toDegrees(difAngle)) > 30 && velocity.getSize() > 1;
+            isDrifting = Math.abs(Math.toDegrees(difAngle)) > drift_angle_cf && velocity.getSize() > 1;
         }
 
         if (keyboard[38]) {
-            engineForce = 300;
+            engineForce += engine_acceleration_cf;
+            if (engineForce > max_engine_cf) engineForce = max_engine_cf;
         } else {
             engineForce = 0;
         }
 
         if (isDrifting) {
-            engineForce = engineForce / 5;
+            engineForce = engineForce / drift_cf;
         }
 
         isBraking = keyboard[40];
@@ -154,12 +158,12 @@ public class Car {
         double speed = velocity.getSize();
         fDrag.set(velocity);
         fDrag.scale(speed);
-        fDrag.scale(-cDrag);
+        fDrag.scale(-drag_cf);
     }
 
     private void calculateRolingResistence() {
         fRolingResistence.set(velocity);
-        fRolingResistence.scale(-cRolingResistence);
+        fRolingResistence.scale(-rolling_resistance_cf);
     }
 
     private void calculateLongtitudinalForce(boolean isBraking) {
@@ -175,7 +179,7 @@ public class Car {
 
     private void calculateAcceleration() {
         acceleration.set(fLongtitudinal);
-        acceleration.scale(1/mass);
+        acceleration.scale(1/mass_cf);
     }
 
     private void calculateVelocity() {
@@ -189,7 +193,7 @@ public class Car {
     private void calculateBraking() {
         fBraking.set(velocity);
         fBraking.normalize();
-        fBraking.scale(-cBraking);
+        fBraking.scale(-braking_cf);
     }
 
 }

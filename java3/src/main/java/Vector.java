@@ -1,4 +1,3 @@
-
 public class Vector {
 
     public double x;
@@ -10,6 +9,11 @@ public class Vector {
     public Vector(double x, double y) {
         this.x = x;
         this.y = y;
+    }
+
+    public Vector(Vector v) {
+        this.x = v.x;
+        this.y = v.y;
     }
 
     public void set(Vector v) {
@@ -26,10 +30,6 @@ public class Vector {
         double nx = x * Math.cos(angle) - y * Math.sin(angle);
         double ny = x * Math.sin(angle) + y * Math.cos(angle);
         set(nx, ny);
-    }
-
-    public void translate(double x, double y, double z) {
-        set(this.x + x, this.y + y);
     }
     
     public double getSize() {
@@ -57,21 +57,26 @@ public class Vector {
         y -= v.y;
     }
 
+    public void sub(Vector a, Vector b) {
+        x = a.x - b.x;
+        y = a.y - b.y;
+    }
+
+
     public double dot(Vector v) {
         return x * v.x + y * v.y;
     }
 
     public static double angleBetween(Vector a, Vector b) {
-	double am = a.getSize();
-	double bm = b.getSize();
-	return Math.acos(a.dot(b) / (am * bm));
+	    double am = a.getSize();
+	    double bm = b.getSize();
+	    return Math.acos(a.dot(b) / (am * bm));
     }
-    
-    public static void sub(Vector r, Vector a, Vector b) {
-        r.x = a.x - b.x;
-        r.y = a.y - b.y;
+
+    public static double distanceBetween(Vector a, Vector b) {
+        return Math.sqrt((a.x - b.x) * (a.x - b.x) + (a.y - b.y) * (a.y - b.y));
     }
-    
+
     public double getRelativeAngleBetween(Vector v) {
         return getSign(v) * Math.acos(dot(v) / (getSize() * v.getSize()));
     }

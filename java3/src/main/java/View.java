@@ -19,9 +19,9 @@ public class View extends JFrame {
     private final Graphics2D g4;
 
     private final Car[] cars;
-    private final int main_car_i;
+    private int main_car_i;
 
-    private final boolean[] keyboard = new boolean[255];
+    private final boolean[] keyboard = new boolean[256];
     InputStreamReader fileInputStream = new InputStreamReader(System.in);
     BufferedReader bufferedReader = new BufferedReader(fileInputStream);
 
@@ -100,6 +100,10 @@ public class View extends JFrame {
 
     public boolean[] getKeyboard(){
         return keyboard;
+    }
+
+    public void setMain_car_i(int id){
+        main_car_i = id;
     }
 
     public void clear(){

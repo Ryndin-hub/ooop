@@ -18,6 +18,7 @@ public class Car {
     private double timerStart;
 
     private String car_name;
+    private int car_id;
     private double mass_cf;
     private double braking_cf;
     private double drag_cf; // less - more speed
@@ -67,6 +68,10 @@ public class Car {
         timerStart = System.currentTimeMillis();
     }
 
+    public void setCar(int name_id) throws IOException {
+        setCar(cars_names[name_id]);
+    }
+
     public boolean setCar(String carName) throws IOException {
         BufferedReader cars_settings = new BufferedReader(new FileReader("src/main/resources/cars_cfg.txt"));
         String s;
@@ -79,6 +84,8 @@ public class Car {
                     car_name = s;
                     String input = cars_settings.readLine();
                     if (!input.equals("////")) return false;
+                    input = cars_settings.readLine();
+                    car_id = Integer.parseInt(input);
                     input = cars_settings.readLine();
                     car_img = ImageIO.read(getClass().getResourceAsStream("Cars images/" + input + ".png"));
                     input = cars_settings.readLine();
@@ -170,6 +177,30 @@ public class Car {
         this.records = records;
     }
 
+    public double[] getValues(){
+        double[] values = new double[8];
+        values[0] = position.x;
+        values[1] = position.y;
+        values[2] = direction.x;
+        values[3] = direction.y;
+        values[4] = velocity.x;
+        values[5] = velocity.y;
+        values[6] = acceleration.x;
+        values[7] = acceleration.y;
+        return values;
+    }
+
+    public void setValues(double x, double y, double dX, double dY, double vX, double vY, double aX, double aY){
+        position.x = x;
+        position.y = y;
+        direction.x = dX;
+        direction.y = dY;
+        velocity.x = vX;
+        velocity.y = vY;
+        acceleration.x = aX;
+        acceleration.y = aY;
+    }
+
     public void update(boolean[] keyboard) throws IOException {
         if (keyboard[37] || keyboard[65]) {
             if (velocity.getSize() < 10) direction.rotate(Math.toRadians((-small_tyre_cf) * (velocity.getSize())));
@@ -195,7 +226,7 @@ public class Car {
             //System.out.println(- Math.PI/2 + Math.atan2(direction.x, direction.y));
         }
 
-        isBraking = keyboard[32];
+        isBraking = keyboard[32] || keyboard[83] || keyboard[40];
 
         calculateRotation();
         calculateBraking();
@@ -366,5 +397,9 @@ public class Car {
 
     public Vector getPosition(){
         return position;
+    }
+
+    public int getCar_id(){
+        return car_id;
     }
 }

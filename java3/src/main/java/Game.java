@@ -7,9 +7,9 @@ public class Game{
 
     private final Car[] cars = new Car[10];
     private int mainCarId = 0;
-    private ArrayList<Integer> otherPlayers = new ArrayList<Integer>();
+    private final ArrayList<Integer> otherPlayers = new ArrayList<>();
 
-    private final boolean[][] keyboard = new boolean[10][257];
+    private final boolean[][] keyboard = new boolean[10][256];
 
     private final View view;
 
@@ -50,35 +50,28 @@ public class Game{
             if (input == null) return;
             String[] words = input.split(" ");
             switch (words[0]) {
-                case "reset":
+                case "reset" -> {
                     reset();
                     multiplayerManager.setResetNeeded();
-                    break;
-                case "car":
-                    if (words.length == 1){
+                }
+                case "car" -> {
+                    if (words.length == 1) {
                         System.out.println("Available cars: Audi R8, BMW M3, Bugatti Chiron, Chevrolet Camaro, Dodge Viper, Ferrari 488, Ford Mustang, Honda S2000, Lamborghini Aventador, Mazda RX-8, Mercedes-AMG GT, Mitsubishi Lancer Evolution X, Nissan GT-R, Porsche 911, Subaru WRX STI, Toyota Supra");
                         break;
                     }
                     boolean carFound = cars[mainCarId].setCar(words[1]);
                     multiplayerManager.setCarChanged(cars[mainCarId].getCar_id());
                     if (!carFound) System.out.println("Unable to find this car");
-                    break;
-                case "records":
-                    records.printRecords();
-                    break;
-                case "clear":
-                    view.clear();
-                    break;
-                case "server":
-                    multiplayerManager.initializeServer(words[1],Integer.parseInt(words[2]));
-                    break;
-                case "connect":
-                    multiplayerManager.connect(words[1],Integer.parseInt(words[2]));
-                    break;
-                default:
-                    System.out.println("Available commands: reset, car [car_name], records, clear");
+                }
+                case "records" -> records.printRecords();
+                case "clear" -> view.clear();
+                case "server" -> multiplayerManager.initializeServer(words[1], Integer.parseInt(words[2]));
+                case "connect" -> multiplayerManager.connect(words[1], Integer.parseInt(words[2]));
+                case "disconnect" -> multiplayerManager.disconnect();
+                case "shutdown" -> multiplayerManager.shutdownServer();
+                default -> System.out.println("Available commands: reset, car [car_name], records, clear, server [ip] [port], connect [ip] [port], disconnect, shutdown");
             }
-        } catch (IOException e) {
+        } catch (IOException | InterruptedException e) {
             e.printStackTrace();
         }
     }
@@ -132,28 +125,24 @@ public class Game{
         }
     }
 
-    int tick = 0;
+    public void removePlayer(int id){
+        otherPlayers.remove((Integer) id);
+    }
+
+    public void removeAllPlayers(){
+        otherPlayers.clear();
+    }
 
     private class MainLoop extends TimerTask {
         @Override
         public void run() {
-            long start = System.nanoTime();
             try {
                 update();
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            long finish = System.nanoTime();
-            //System.out.println("update: " + (finish - start));
-            start = System.nanoTime();
             view.render();
             parseInput();
-            finish = System.nanoTime();
-            //System.out.println("repaint: " + (finish - start));
-            //if (tick == 100) multiplayerManager.connect("localhost", 22222);
-            //if (tick == 110) multiplayerManager.setResetNeeded();
-            tick++;
         }
     }
-
 }

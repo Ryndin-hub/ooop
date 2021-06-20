@@ -221,11 +221,6 @@ public class Car {
             engineForce = engineForce / drift_cf;
         }
 
-        if (keyboard[84]) {
-            System.out.println((int)position.x + "," + (int)position.y);
-            //System.out.println(- Math.PI/2 + Math.atan2(direction.x, direction.y));
-        }
-
         isBraking = keyboard[32] || keyboard[83] || keyboard[40];
 
         calculateRotation();

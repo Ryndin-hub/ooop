@@ -23,6 +23,7 @@
 0:41:628 Lamborghini Aventador
 0:41:666 Ferrari 488
 0:41:813 Lamborghini Aventador
+0:41:885 Dodge Viper
 0:41:890 Nissan GT-R
 0:41:893 Ferrari 488
 0:41:906 Nissan GT-R
@@ -30,6 +31,7 @@
 0:42:033 Ford Mustang
 0:42:108 Dodge Viper
 0:42:116 Nissan GT-R
+0:42:289 Nissan GT-R
 0:42:544 Dodge Viper
 0:42:657 Mercedes-AMG GT
 0:42:682 Audi R8
@@ -40,6 +42,7 @@
 0:43:092 Mitsubishi Lancer Evolution X
 0:43:133 Chevrolet Camaro
 0:43:140 Audi R8
+0:43:163 Dodge Viper
 0:43:284 Audi R8
 0:43:317 Subaru WRX STI
 0:43:606 Ford Mustang
@@ -56,6 +59,7 @@
 0:44:695 Toyota Supra
 0:44:892 Lamborghini Aventador
 0:45:690 BMW M3
+0:45:805 Toyota Supra
 0:45:947 Subaru WRX STI
 0:45:950 Mitsubishi Lancer Evolution X
 0:46:000 Chevrolet Camaro
@@ -63,38 +67,34 @@
 0:46:146 Mazda RX-8
 0:46:194 Dodge Viper
 0:47:018 Mazda RX-8
+0:47:229 Honda S2000
 0:47:440 Audi R8
+0:47:557 Audi R8
 0:47:667 Audi R8
 0:47:676 Audi R8
 0:47:692 Audi R8
 0:47:695 Audi R8
 0:47:708 Audi R8
+0:47:722 Audi R8
 0:47:723 Audi R8
 0:47:731 Toyota Supra
 0:47:747 Audi R8
+0:47:792 Audi R8
 0:47:808 Audi R8
 0:47:822 Audi R8
 0:47:826 Audi R8
 0:47:884 Audi R8
+0:47:885 Audi R8
 0:47:906 Audi R8
+0:47:937 Audi R8
+0:47:955 Audi R8
+0:47:976 Audi R8
+0:48:034 Audi R8
+0:48:045 Audi R8
 0:48:063 Audi R8
 0:48:120 Audi R8
 0:48:195 Audi R8
+0:48:198 Audi R8
 0:48:207 Audi R8
-0:48:307 Lamborghini Aventador
-0:48:320 Audi R8
-0:48:396 Lamborghini Aventador
-0:48:457 Audi R8
-0:48:473 Audi R8
-0:48:480 Audi R8
-0:48:489 Audi R8
-0:48:515 Audi R8
-0:48:517 Audi R8
-0:48:542 Audi R8
-0:48:546 Lamborghini Aventador
-0:48:546 Lamborghini Aventador
-0:48:549 Lamborghini Aventador
-0:48:550 Lamborghini Aventador
-0:48:551 Lamborghini Aventador
-0:48:557 Lamborghini Aventador
-0:48:559 Audi R8
+0:48:295 Audi R8
+0:48:300 Audi R8

@@ -31,27 +31,27 @@ public class Vector {
         double ny = x * Math.sin(angle) + y * Math.cos(angle);
         set(nx, ny);
     }
-    
+
     public double getSize() {
         return Math.sqrt(x * x + y * y);
     }
-    
+
     public void normalize() {
         double size = getSize();
         x /= size;
         y /= size;
     }
-    
+
     public void scale(double f) {
         x *= f;
         y *= f;
     }
-    
+
     public void add(Vector v) {
         x += v.x;
         y += v.y;
     }
-    
+
     public void sub(Vector v) {
         x -= v.x;
         y -= v.y;

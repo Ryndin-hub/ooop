@@ -59,6 +59,7 @@
 0:44:695 Toyota Supra
 0:44:892 Lamborghini Aventador
 0:45:690 BMW M3
+0:45:805 Toyota Supra
 0:45:947 Subaru WRX STI
 0:45:950 Mitsubishi Lancer Evolution X
 0:46:000 Chevrolet Camaro
@@ -85,6 +86,7 @@
 0:47:884 Audi R8
 0:47:885 Audi R8
 0:47:906 Audi R8
+0:47:937 Audi R8
 0:47:955 Audi R8
 0:47:976 Audi R8
 0:48:034 Audi R8
@@ -96,5 +98,3 @@
 0:48:207 Audi R8
 0:48:295 Audi R8
 0:48:300 Audi R8
-0:48:307 Lamborghini Aventador
-0:48:320 Audi R8
